@@ -1,0 +1,250 @@
+Changes in ReGenesees.GUI version 2.0
+
+ - The main purpose of this version is to ensure a safe transition of package
+   ReGenesees.GUI to the "R 4.x" series. Indeed R 4.0.0. brought in some
+   potentially disruptive changes: see, e.g., the following NOTEs.
+ - NOTE: Under R 4.0.0 or later, old versions of the ReGenesees.GUI package need
+   to be re-installed from sources (i.e. local .tar.gz files). Binary
+   distributions of old versions (i.e. local .zip files) are expect not to work
+   under R 4.0.0 or later.
+ - NOTE: R 4.0.0 changed the default value of argument 'stringsAsFactors', which
+   enters functions data.frame(), as.data.frame(), read.table() and possibly
+   many others. The new default is now: *stringsAsFactors = FALSE*.
+ - As most ReGenesees functions *require* categorical variables be represented
+   as *factors*, ReGenesees.GUI 'Import Datasets' facilities now use explicitly:
+   stringsAsFactors = TRUE. This is expected to leave the behavior of
+   ReGenesees.GUI unchanged when switching to R 4.x.
+ - Conflicting imports of function `?` from packages utils and svMisc have been
+   ruled out from the NAMESPACE file (in favor of utils::?): this complies with
+   recent tighter 'R CMD check' rules on declaring dependencies.
+
+
+Changes in ReGenesees.GUI version 1.9
+
+ - This is a wrap-up release, whose main purpose is to ensure a safe transition
+   to the "R 3.4.x" series.
+ - In R 3.4.0, which now includes Tcl/Tk 8.6.4, it is forbidden to mix 'tkpack'
+   and 'tkgrid' geometry managers on the same widgets/slaves. This caused
+   troubles to ReGenesees.GUI. Fixed, by dismissing 'tkpack' in favor of
+   'tkgrid' (with some boring struggle to keep the whole look & feel of the
+   GUI unchanged).
+ - New dialog window "Trim Calibration Weights" in the "Calibration" menu:
+   allows to trim calibration weights consistently, i.e. preserving all the
+   calibration constraints (via function trimcal of package ReGenesees).
+ - Better labels for dialog window "Merge New Data into a Survey Design".
+
+
+Changes in ReGenesees.GUI version 1.8.1
+
+ - This is a patched version, whose main purpose is to ensure a safe transition
+   to the "R 3.3.x" series.
+ - No user-visible changes.
+
+
+Changes in ReGenesees.GUI version 1.8
+
+ - New dialog window "Describe a Population Totals Template" in the
+   "Calibration" menu: allows to print on screen a natural language description
+   of the structure of a known totals data frame (via function pop.desc of
+   package ReGenesees).
+ - New dialog window "Shares" in the "Estimates and Errors" menu: allows to
+   compute estimates and errors for the shares of a numeric variable held by
+   specific population groups, possibly within domains (via function svystatS of
+   package ReGenesees).
+ - New dialog window "Share Ratios" in the "Estimates and Errors" menu: allows
+   to compute estimates and errors for ratios between shares of a numeric
+   variable held by specific population groups, possibly within domains (via
+   function svystatSR of package ReGenesees).
+ - All the commands inserted and stored into the "Commands Window" are now
+ also* flushed to the *R history file* just upon execution.
+   NOTE: Currently, this has been deliberately limited to Windows, as OSs of the
+   Linux/Unix family and Mac have different mechanisms to handle R history,
+   which I'm not willing to dig into at the moment.
+ - Dialog window "Environment Options": fixed a small and harmless bug causing
+   the 'scipen' slider to freeze after 'scipen' was set to a negative value.
+
+
+Changes in ReGenesees.GUI version 1.7
+
+ - To date, ReGenesees GVF infrastructure can be used only through the command
+   line. To be honest, I am not sure the GUI will ever support GVF functions.
+ - GUI function "Build a Template for Population Totals" failed after R 3.2.0
+   when trying to visualize output, due to a new-born bug in internal function
+   editRG. Fixed.
+ - The tcltk widget triggered by "Show Datasets" happened to be visualized badly
+   for data frames with many columns *and* long column names (let's say when
+   data is such that sum(nchar(names(data))) > 3000). This behavior was most
+   likely seen for huge population totals templates and data frames. Fixed.
+ - GUI function "Build a Template for Population Totals" visualized generated
+   templates twice if they were big: the first time in "edit" mode (i.e. cells
+   could be filled/changed by the user), the second in "visualization" mode.
+   Now the second static visualization is only triggered if cells have been
+   actually edited manually during the first visualization (which, by the way,
+   is rather unlikely to happen for big templates...).
+
+
+Changes in ReGenesees.GUI version 1.6
+
+ - GUI functionalities for the GVF infrastructure provided by package ReGenesees
+   are currently in an early design stage.
+ - On some 64 bit Windows 7 machines (under default settings) text fields which
+   had by default a white background color in Windows XP were visualized with an
+   ugly non-white background: this has been fixed.
+ - Font color of warning messages has been changed for better readability (from
+   'olivedrab4' to 'forestgreen').
+ - Under Windows 7, Dataset Import/Export windows happen to invert the display
+   order of file extensions when switching from 32 to 64 bit builds of R (e.g.
+   when importing from Text Files the first reported option is 'All files (*,*)'
+   rather than e.g. '*.txt'). The setting resulting in the right ordering
+   under 64 bit R has been chosen (sorry for 32 bit users).
+
+
+Changes in ReGenesees.GUI version 1.5
+
+ - New dialog window "Merge New Data into a Survey Design" in the "Survey
+   Design" menu: allows to join new survey data to the original ones stored
+   inside a design object via function des.merge of package ReGenesees.
+ - New "font size" slider in "Environment Options" dialog. Allows to change the
+   size of the fonts used in many (yet not all) the text fields of the GUI. The
+   change is immediately active upon setting, without the need of restarting the
+   GUI. While setting a big size (say > 10 points) can improve the readability
+   of some items, it can make the overall look of the GUI less pretty.
+ - New entry "ReGenesees Flyer" in the "Help" menu: allows to visualize a short
+   document providing a description of the ReGenesees system (the pdf file can 
+   be found inside the \doc folder of the installation directory of the
+   ReGenesees package).
+ - New checkbox entry in "Variance Estimation Options" dialog: allows to switch
+   on/off the warnings raised when a domain intersects just a single PSU in a
+   stratum (see ?ReGenesees.options).
+ - The ReGenesees GUI facility now has its own icon: the "RG" string typed in
+   red Newton font. This icon will replace the TK default icon in all the
+   top-level windows generated by interacting with the GUI. The default TK icon
+   will be silently restored when closing the GUI.
+ - The behaviour of pop-up boxes storing error messages has been entirely
+   re-worked out. Now error boxes are strictly modal and must be destroyed
+   before interacting again with the window (i.e. function) which triggered the
+   error. This is more robust against unhandled Tk errors possibly caused by a
+   child window being destroyed after its parent window.
+ - ReGenesees.GUI: now checks that the screen resolution is enough to work
+   correctly (i.e. 1024x768 at least), otherwise raises an error. This may rule
+   out some netbooks.
+ - GUI intro image has been slightly resized (to comply with the ongoing pc
+   screens' tendency toward rectangular aspect ratios).
+ - GUI intro and main windows are now aligned with their top-right corner placed
+   at screen's top-right corner (formerly they were bottom-right aligned).
+ - Better vertical spacing of "Output Object Name" entry in all windows.
+ - Cross-platform management of monospaced fonts (e.g. Courier) is now more
+   robust.
+ - Dialogs triggering functions pop.template, aux.estimates and (depending on
+   the nature of the input) e.calibrate generated "non standard" spacing of 
+   printed statements at the "Commands Window": fixed.
+ - Statement printed at the "Commands Window" by the dialog window of function
+   des.addvars was "non standard" (though not incorrect) as it lacked its first
+   formal argument: fixed.
+ - ReGenesees.GUI: implemented a trick to keep assigning objects into the
+   .GlobalEnv without making 'R CMD check' angry.
+ - Packages on which ReGenesees.GUI used to depend are now explicitly listed in
+   the import directive of the NAMESPACE file: this complies with tighter 'R CMD
+   check' rules on declaring dependencies.
+
+
+Changes in ReGenesees.GUI version 1.4
+
+ - This is essentially a maintenance release, with few user-visible changes.
+   The major goal was to verify that the transition of ReGenesees.GUI to the
+   "R 3.x" realm would have been safe. To date, everything seems to be ok.
+ - Set bigger font size for "Variance Estimation Options" dialog.
+
+
+Changes in ReGenesees.GUI version 1.3
+
+ - First release with ByteCompile build: unless something unexpected is
+   signalled, this will be the standard from now on.
+ - New dialog window "Regression Coefficients" in "Estimates and Errors" menu:
+   enables estimation of multiple regression coefficients via function svystatB
+   of package ReGenesees.
+ - Copy (and, when appropriate, paste) pop-up menus (displayed upon mouse
+   right-click) have been enabled for all text widgets (Commands and Warnings
+   Windows + those in functions des.addvars, svystatB, svystatL, e.calibrate,
+   pop.template, fill.template, aux.estimates).
+ - Text widgets for des.addvars, svystatB and svystatL now allow to insert
+   where the user places the cursor (formerly, insertion automatically took
+   place at the end of the current text), and keep the focus after insertion.
+ - A bug caused the "collapse" button (with label "+...+") to loose the first
+   (and only the first) variable appearing in the variables listbox whenever
+   such variable was selected. Fixed.
+ - All dialog windows provided with a help button in the bottom-right corner
+   now have a new tooltip. When the cursor is on the help button, the tooltip
+   shows the title of the corresponding function.
+ - ReGenesees.GUI main window now has a tooltip explaining "ReGenesees" acronym:
+   it is shown when the cursor is placed on the "ReGenesees" icon.
+ - Better font and text alignment for "Variance Estimation Options" dialog
+   window.
+ - All .GIF icons appearing inside ReGenesees.GUI widgets have been renewed.
+   I believe the overall effect is very satisfying.
+ - Extensive tests performed on Windows 7: all GUI pieces work fine and the GUI
+   looks very good.
+ - Tests performed on Mac OS: the GUI works without any bug, but its overall
+   look is definitely worse than under Windows. Despite I find this situation
+   quite bothering, I actually have no time to try to mitigate it (the problem
+   seems to be caused by the simultaneous usage of tcltk and tcltk2 widgets).
+ - Sometimes (only sometimes, weird but true) the main window of the GUI
+   happened to be slightly misplaced at startup. Fixed: now bottom-right corner
+   is always correctly placed at screen's bottom-right corner.
+ - Though in very rare cases (say 1%), the "ReGenesees" icon in GUI main window
+   happened to be "flashing": adding a small system delay to the packing of the
+   widget seems to have fixed such problem.
+
+
+Changes in ReGenesees.GUI version 1.2
+
+ - A typo in internal code of svystatR widget caused the default conf.lev to be 
+   0 instead of 0.95. Fixed.
+ - New dialog window in "Calibration Models Options" in "Calibration" menu:
+   allows to enable or switch off contrasts. This global option affects the
+   behaviour of several ReGenesees functions, e.g. e.calibrate, pop.template,
+   fill.template, aux.estimates (read carefully the related help pages:
+   ?contrasts.RG).
+ - Dialog windows calling svystatTM, svystatR, svystatQ, svystatL,
+   aux.estimates now generate the "design" attribute of output objects: it
+   stores the name of the design input object on which summary statistics have
+   been computed.
+
+
+Changes in ReGenesees.GUI version 1.1
+
+ - In windows OS, a tcltk2 bug (signalled to the tcltk2 maintainer, but still
+   pending) mistakenly changes TkDefaultFont from its tcltk default value. This
+   has been fixed in internal function Intro.RG by resetting the original value.
+ - Inadvisable (albeit not harmful) code (signalled by Prof Brian Ripley) has
+   been eliminated from .onLoad.
+ - Few partial arguments matching in function calls (as signalled by R CMD CHECK
+   under R 2.15.x) have been removed.
+
+
+Changes in ReGenesees.GUI version 1.0
+
+ - Stable release, published for general availability in December 2011 on:
+   1) Istat official website:
+      http://www.istat.it/it/strumenti/metodi-e-software/software/regenesees
+   2) JOINUP (The European Commission open source software repository):
+      https://joinup.ec.europa.eu/software/regenesees/description
+ - Export to text files now automatically sets col.names=NA whenever the 
+   user selects col.names=TRUE and row.names=TRUE simultaneously. This
+   is what function write.csv does by default: a blank name is given to
+   the rownames column (see ?write.table).
+
+
+Changes in ReGenesees.GUI version 0.9.1
+
+ - First external release: available since middle November 2011
+   at the OSOR repository (subsequently migrated to JOINUP).
+ - Import from text files now has quote="\"" instead of quote="\"'" (which is
+   read.table default): this setting avoids problems arising from apostrophe
+   marks frequently occurring in romance languages.
+
+
+Changes in ReGenesees.GUI version 0.9
+
+ - Release-candidate version: it is almost 1.0 complete.
+ - It has been published in the Istat intranet on 8/11/2011.

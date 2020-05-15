@@ -1,0 +1,14 @@
+images                          Folder containing gif images needed by the GUI
+
+BUGS                            Known bugs log
+
+CITATION                        How to cite ReGenesees.GUI package in publications
+                                (In R type the command citation("ReGenesees.GUI"))
+
+COPYING                         Copyright information
+
+DISCLAIMER                      Important information for ReGenesees.GUI package users
+
+NEWS                            Change log
+
+README                          This file
