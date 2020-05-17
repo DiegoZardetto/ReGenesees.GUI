@@ -257,6 +257,9 @@ img.path <- system.file("images", package = "ReGenesees.GUI")
   tkadd(helpMenu,"command",label="ReGenesees Flyer", command=function() RGflyer())
   tkadd(helpMenu,"command",label="About the GUI", command=function() fHelpGUI())
 
+  websiteMenu <- tkmenu(topMenu,tearoff=FALSE)
+  tkadd(websiteMenu,"command",label="ReGenesees website on GITHUB", command=function() RGwebsite())
+
   tkadd(topMenu,"cascade",label="File",menu=fileMenu)
 
   tkadd(topMenu,"cascade",label="Data",menu=dataMenu)
@@ -271,6 +274,7 @@ img.path <- system.file("images", package = "ReGenesees.GUI")
   tkadd(topMenu,"cascade",label="Tools",menu=toolsMenu)
   tkadd(topMenu,"cascade",label="Options",menu=OptionsMenu)
   tkadd(topMenu,"cascade",label="Help",menu=helpMenu)
+  tkadd(topMenu,"cascade",label="Website",menu=websiteMenu)
 
 
 # OLD CODE (debug 26/04/2016) #

@@ -9,9 +9,9 @@ ReGenesees.GUI()
 }
 
 \details{
-The main window of the GUI consists of a menu bar, a scrollable text window called "Commands Window" and a lower scrollable text window called "Warnings Window". The menu bar consists, from left to right, of the following menu items: "File", "Data", "Functions", "Tools", "Options" and "Help" (see section \sQuote{Menu Tree}).\cr
+The main window of the GUI consists of a menu bar, a scrollable text window called "Commands Window" and a lower scrollable text window called "Warnings Window". The menu bar consists, from left to right, of the following menu items: "File", "Data", "Functions", "Tools", "Options", "Help" and "Website" (see section \sQuote{Menu Tree}).\cr
 
-Menus "Data", "Functions" and "Options" lead to dialog boxes that need further specifications, while the others ("File", "Tools" and "Help") trigger directly the corresponding command. All dialog boxes accessed from the "Data" and "Functions" menus are provided with a help button that links to appropriate help pages (whose source is mostly the \pkg{ReGenesees} package). For a quicker hint, all the entries of dialog boxes accessed from the "Functions" menu have been supplied with tooltips: just hover the mouse pointer over \sQuote{circled question mark} icons.\cr
+Menus "Data", "Functions" and "Options" lead to dialog boxes that need further specifications, while the others ("File", "Tools", "Help" and "Website") trigger directly the corresponding command. All dialog boxes accessed from the "Data" and "Functions" menus are provided with a help button that links to appropriate help pages (whose source is mostly the \pkg{ReGenesees} package). For a quicker hint, all the entries of dialog boxes accessed from the "Functions" menu have been supplied with tooltips: just hover the mouse pointer over \sQuote{circled question mark} icons.\cr
 
 Output objects created by the GUI are stored into the user's workspace (i.e. the \code{.GlobalEnv}). Upon creation, each output object (or a corresponding summary description, if the object is large) gets also printed at the \R console.\cr
 
@@ -82,6 +82,9 @@ The scheme reported below represents the \pkg{ReGenesees} system menu-tree (with
 \tab\cr
 \tab\cr
 \tab\cr
+\tab\cr
+\tab\cr
+\tab\cr
 | Tools \tab  \tab  \cr
 | --------------------------------------\tab  \tab  \cr
   \tab | - Browse Workspace \tab  \cr
@@ -97,6 +100,10 @@ The scheme reported below represents the \pkg{ReGenesees} system menu-tree (with
   \tab | - ReGenesees Reference Manual \tab  \cr
   \tab | - ReGenesees Flyer\tab  \cr
   \tab | - About the GUI \tab  \cr
+\tab\cr
+| Website \tab  \tab  \cr
+| --------------------------------------\tab  \tab  \cr
+  \tab | - ReGenesees website on GITHUB \tab  \cr
 \tab\cr
     }
 }

@@ -323,6 +323,17 @@ print(help("ReGenesees.GUI"))
 }
 
 
+RGwebsite <- function(){
+################################################
+# Actions performed when pressing the Website  #
+# menu of the ReGenesees system.               #
+################################################
+# NOTE: This is ReGenesees' GITHUB PAGES website
+browseURL("https://diegozardetto.github.io/ReGenesees")
+}
+
+
+
 fOnFunctionHelp <- function(x) {
 ################################################
 # Actions performed when pressing the ? button #

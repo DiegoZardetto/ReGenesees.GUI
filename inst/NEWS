@@ -14,6 +14,10 @@ Changes in ReGenesees.GUI version 2.0
    as *factors*, ReGenesees.GUI 'Import Datasets' facilities now use explicitly:
    stringsAsFactors = TRUE. This is expected to leave the behavior of
    ReGenesees.GUI unchanged when switching to R 4.x.
+ - The GUI gained a new "Website" menu, which browses the brand new ReGenesees
+   website hosted on GITHUB pages: https://diegozardetto.github.io/ReGenesees
+ - Package ReGenesees.GUI is now also available from GITHUB at the URL below:
+   https://github.com/DiegoZardetto/ReGenesees.GUI
  - Conflicting imports of function `?` from packages utils and svMisc have been
    ruled out from the NAMESPACE file (in favor of utils::?): this complies with
    recent tighter 'R CMD check' rules on declaring dependencies.
