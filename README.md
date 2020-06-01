@@ -15,7 +15,7 @@ install.packages("devtools")
 devtools::install_github("DiegoZardetto/ReGenesees.GUI")
 ```
 
-The **last released version** of ReGenesees.GUI can be downloaded from [Istat website](http://www.istat.it/en/tools/methods-and-it-tools/processing-tools/regenesees) or from the [European Commission platform Joinup]( https://joinup.ec.europa.eu/solution/regenesees-system/releases) (where **older versions** are available too).
+The **last released version** of ReGenesees.GUI can be downloaded from [Istat website](https://www.istat.it/en/tools/methods-and-it-tools/processing-tools/regenesees) or from the [European Commission platform Joinup]( https://joinup.ec.europa.eu/solution/regenesees-system/releases) (where **older versions** are available too).
 
 
 ## Sample GUI Screenshots
