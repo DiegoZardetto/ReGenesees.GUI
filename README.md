@@ -1,6 +1,6 @@
 [![Mentioned in Awesome Official Statistics ](https://awesome.re/mentioned-badge.svg)](http://www.awesomeofficialstatistics.org)
 
-# ReGenesees.GUI
+# ReGenesees.GUI <img src="ReGenesees_LOGO_small.png" align="right" alt="" />
 
 **ReGenesees.GUI** provides a Graphical User Interface for the [ReGenesees](https://github.com/DiegoZardetto/ReGenesees) package, based on tcltk.
 
