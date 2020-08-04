@@ -12,6 +12,7 @@ You can install the **development version** of ReGenesees.GUI from [GitHub](http
 
 ```r
 install.packages("devtools")
+devtools::install_github("DiegoZardetto/ReGenesees")
 devtools::install_github("DiegoZardetto/ReGenesees.GUI")
 ```
 
