@@ -17,13 +17,16 @@ img.path <- system.file("images", package = "ReGenesees.GUI")
 # ... and get the ? OK nad CANCEL images
 # 1) help question mark
 image_qm <- tclVar()
-tkimage.create("photo", image_qm, file=paste(img.path, "//help.gif", sep=""))
+# tkimage.create("photo", image_qm, file=paste(img.path, "//help.gif", sep="")) fix for OS independence
+tkimage.create("photo", image_qm, file=file.path(img.path, "help.gif"))
 # 2) ok flag
 image_ok <- tclVar()
-tkimage.create("photo", image_ok, file=paste(img.path, "//ok.gif", sep=""))
+# tkimage.create("photo", image_ok, file=paste(img.path, "//ok.gif", sep="")) fix for OS independence
+tkimage.create("photo", image_ok, file=file.path(img.path, "ok.gif"))
 # 3) cancel
 image_cancel <- tclVar()
-tkimage.create("photo", image_cancel, file=paste(img.path, "//cancel.gif", sep=""))
+# tkimage.create("photo", image_cancel, file=paste(img.path, "//cancel.gif", sep="")) fix for OS independence
+tkimage.create("photo", image_cancel, file=file.path(img.path, "cancel.gif"))
 
     #load the RODBC package and stops the program if not available
 #    if(!require(RODBC)) # NOT NECESSARY due to 'Depends' in Description file
@@ -71,13 +74,16 @@ img.path <- system.file("images", package = "ReGenesees.GUI")
 # ... and get the ? OK nad CANCEL images
 # 1) help question mark
 image_qm <- tclVar()
-tkimage.create("photo", image_qm, file=paste(img.path, "//help.gif", sep=""))
+# tkimage.create("photo", image_qm, file=paste(img.path, "//help.gif", sep="")) fix for OS independence
+tkimage.create("photo", image_qm, file=file.path(img.path, "help.gif"))
 # 2) ok flag
 image_ok <- tclVar()
-tkimage.create("photo", image_ok, file=paste(img.path, "//ok.gif", sep=""))
+# tkimage.create("photo", image_ok, file=paste(img.path, "//ok.gif", sep="")) fix for OS independence
+tkimage.create("photo", image_ok, file=file.path(img.path, "ok.gif"))
 # 3) cancel
 image_cancel <- tclVar()
-tkimage.create("photo", image_cancel, file=paste(img.path, "//cancel.gif", sep=""))
+# tkimage.create("photo", image_cancel, file=paste(img.path, "//cancel.gif", sep="")) fix for OS independence
+tkimage.create("photo", image_cancel, file=file.path(img.path, "cancel.gif"))
 
     ttReadDataSet <- tktoplevel()
     fDesignDialog(ttReadDataSet)
@@ -507,13 +513,16 @@ img.path <- system.file("images", package = "ReGenesees.GUI")
 # ... and get the ? OK nad CANCEL images
 # 1) help question mark
 image_qm <- tclVar()
-tkimage.create("photo", image_qm, file=paste(img.path, "//help.gif", sep=""))
+# tkimage.create("photo", image_qm, file=paste(img.path, "//help.gif", sep="")) fix for OS independence
+tkimage.create("photo", image_qm, file=file.path(img.path, "help.gif"))
 # 2) ok flag
 image_ok <- tclVar()
-tkimage.create("photo", image_ok, file=paste(img.path, "//ok.gif", sep=""))
+# tkimage.create("photo", image_ok, file=paste(img.path, "//ok.gif", sep="")) fix for OS independence
+tkimage.create("photo", image_ok, file=file.path(img.path, "ok.gif"))
 # 3) cancel
 image_cancel <- tclVar()
-tkimage.create("photo", image_cancel, file=paste(img.path, "//cancel.gif", sep=""))
+# tkimage.create("photo", image_cancel, file=paste(img.path, "//cancel.gif", sep="")) fix for OS independence
+tkimage.create("photo", image_cancel, file=file.path(img.path, "cancel.gif"))
 
     ttExpDataSet <- tktoplevel()
     fDesignDialog(ttExpDataSet)

@@ -346,10 +346,12 @@ img.path <- system.file("images", package = "ReGenesees.GUI")
 # ... and get the images needed by the GUI
   # 1) ok flag
   image_ok <- tclVar()
-  tkimage.create("photo", image_ok, file=paste(img.path, "//ok.gif", sep=""))
+  # tkimage.create("photo", image_ok, file=paste(img.path, "//ok.gif", sep="")) fix for OS independence
+  tkimage.create("photo", image_ok, file=file.path(img.path, "ok.gif"))
   # 2) cancel
   image_cancel <- tclVar()
-  tkimage.create("photo", image_cancel, file=paste(img.path, "//cancel.gif", sep=""))
+  # tkimage.create("photo", image_cancel, file=paste(img.path, "//cancel.gif", sep="")) fix for OS independence
+  tkimage.create("photo", image_cancel, file=file.path(img.path, "cancel.gif"))
 # end images
 
 tt <- tktoplevel()
@@ -633,10 +635,13 @@ img.path <- system.file("images", package = "ReGenesees.GUI")
 # ... and get the images needed by the GUI
   # 1) ok flag
   image_ok <- tclVar()
-  tkimage.create("photo", image_ok, file=paste(img.path, "//ok.gif", sep=""))
+  # tkimage.create("photo", image_ok, file=paste(img.path, "//ok.gif", sep="")) fix for OS independence
+  tkimage.create("photo", image_ok, file=file.path(img.path, "ok.gif"))
   # 2) cancel
   image_cancel <- tclVar()
-  tkimage.create("photo", image_cancel, file=paste(img.path, "//cancel.gif", sep=""))
+  # tkimage.create("photo", image_cancel, file=paste(img.path, "//cancel.gif", sep="")) fix for OS independence
+  tkimage.create("photo", image_cancel, file=file.path(img.path, "cancel.gif"))
+
 # end images
 
 tt <- tktoplevel()

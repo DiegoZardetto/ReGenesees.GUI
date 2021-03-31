@@ -40,10 +40,12 @@ GUI.version <- packageDescription("ReGenesees.GUI")$Version
 img.path <- system.file("images", package = "ReGenesees.GUI")
 # ... get the LOGO image...
 image_logo <- tclVar()
-tkimage.create("photo", image_logo, file= paste(img.path, "//RG.logo10.gif", sep=""))
+# tkimage.create("photo", image_logo, file= paste(img.path, "//RG.logo10.gif", sep="")) fix for OS independence
+tkimage.create("photo", image_logo, file= file.path(img.path, "RG.logo10.gif"))
 # ...and the ICON image...
 image_icon <- tclVar()
-tkimage.create("photo", image_icon, file= paste(img.path, "//RG_icon32.gif", sep=""))
+# tkimage.create("photo", image_icon, file= paste(img.path, "//RG_icon32.gif", sep="")) fix for OS independence
+tkimage.create("photo", image_icon, file= file.path(img.path, "RG_icon32.gif"))
 
 # Create top-level window
 tt <- tktoplevel(bg="white")

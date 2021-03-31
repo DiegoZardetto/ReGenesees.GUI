@@ -5,9 +5,9 @@ citEntry(
     author = "Diego Zardetto, Raffaella Cianchetta",
     year = "2021",
     title = "ReGenesees.GUI: a TclTk Interface for the ReGenesees Package",
-    note = "R package version 2.0",
+    note = "R package version 2.1",
     organization = "Istat",
     address = "Rome, Italy",
-    textVersion = "D. Zardetto, R. Cianchetta (2021) \"ReGenesees.GUI: a TclTk Interface for the ReGenesees Package\". R package version 2.0, Istat, Italy."
+    textVersion = "D. Zardetto, R. Cianchetta (2021) \"ReGenesees.GUI: a TclTk Interface for the ReGenesees Package\". R package version 2.1, Istat, Italy."
     )
   

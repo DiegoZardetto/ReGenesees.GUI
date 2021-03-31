@@ -1,3 +1,10 @@
+Changes in ReGenesees.GUI version 2.1
+
+ - THIS IS A DEVELOPMENT VERSION AND IS NOT RELEASED YET.
+ - File paths to images were not built in a OS independent way: this caused
+   issues in e.g. Manjaro Linux. Fixed. Thanks to josephuses.
+
+
 Changes in ReGenesees.GUI version 2.0
 
  - The main purpose of this version is to ensure a safe transition of package

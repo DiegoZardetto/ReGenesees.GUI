@@ -26,22 +26,28 @@ img.path <- system.file("images", package = "ReGenesees.GUI")
 # ... and get the images needed by the GUI
   # 1) green sx arrow
   image_sx <- tclVar()
-  tkimage.create("photo", image_sx, file=paste(img.path, "//green.gif", sep=""))
+  # tkimage.create("photo", image_sx, file=paste(img.path, "//green.gif", sep="")) fix for OS independence
+  tkimage.create("photo", image_sx, file=file.path(img.path, "green.gif"))
   # 2) red dx arrow
   image_dx <- tclVar()
-  tkimage.create("photo", image_dx, file=paste(img.path, "//red.gif", sep=""))
+  # tkimage.create("photo", image_dx, file=paste(img.path, "//red.gif", sep="")) fix for OS independence
+  tkimage.create("photo", image_dx, file=file.path(img.path, "red.gif"))
   # 3) help question mark
   image_qm <- tclVar()
-  tkimage.create("photo", image_qm, file=paste(img.path, "//help.gif", sep=""))
+  # tkimage.create("photo", image_qm, file=paste(img.path, "//help.gif", sep="")) fix for OS independence
+  tkimage.create("photo", image_qm, file=file.path(img.path, "help.gif"))
   # 4) ok flag
   image_ok <- tclVar()
-  tkimage.create("photo", image_ok, file=paste(img.path, "//ok.gif", sep=""))
+  # tkimage.create("photo", image_ok, file=paste(img.path, "//ok.gif", sep="")) fix for OS independence
+  tkimage.create("photo", image_ok, file=file.path(img.path, "ok.gif"))
   # 5) cancel
   image_cancel <- tclVar()
-  tkimage.create("photo", image_cancel, file=paste(img.path, "//cancel.gif", sep=""))
+  # tkimage.create("photo", image_cancel, file=paste(img.path, "//cancel.gif", sep="")) fix for OS independence
+  tkimage.create("photo", image_cancel, file=file.path(img.path, "cancel.gif"))
   # 6) ReGenesees icon
   image_RG.ico <- tclVar()
-  tkimage.create("photo", image_RG.ico, file=paste(img.path, "//RG.20.gif", sep=""))
+  # tkimage.create("photo", image_RG.ico, file=paste(img.path, "//RG.20.gif", sep="")) fix for OS independence
+  tkimage.create("photo", image_RG.ico, file=file.path(img.path, "RG.20.gif"))
 # end images
 
   # Set default options for ReGenesees.GUI session
