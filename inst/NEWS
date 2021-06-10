@@ -1,6 +1,9 @@
 Changes in ReGenesees.GUI version 2.1
 
  - THIS IS A DEVELOPMENT VERSION AND IS NOT RELEASED YET.
+ - Dialog window "Regression Coefficients" in "Estimates and Errors" menu has
+   gained a 'by' listbox (as ReGenesees now allows estimation of multiple
+   regression coefficients in subpopulations).
  - File paths to images were not built in a OS independent way: this caused
    issues in e.g. Manjaro Linux. Fixed. Thanks to josephuses.
 
@@ -67,7 +70,7 @@ Changes in ReGenesees.GUI version 1.8
    variable held by specific population groups, possibly within domains (via
    function svystatSR of package ReGenesees).
  - All the commands inserted and stored into the "Commands Window" are now
- also* flushed to the *R history file* just upon execution.
+   *also* flushed to the *R history file* just upon execution.
    NOTE: Currently, this has been deliberately limited to Windows, as OSs of the
    Linux/Unix family and Mac have different mechanisms to handle R history,
    which I'm not willing to dig into at the moment.

@@ -4141,7 +4141,7 @@ fSvystatTM <- function(){
                     count_SvystatB <<- FALSE
                     tkbind(lstEsvydesignObj, "<ButtonRelease-1>", function() fElencoCampiSvystatB(lista, lstEsvydesignObj,
                             lblVariables, listaVariables, lstVariables, scrVariables, Tilde.but, Plus.but, Times.but, Colon.but, Minus.but, Power.but, LeftParen.but, RightParen.but,
-                            Collapse.but, textModel, lblESvystatDesignObj, ok.but, entry.ObjectName))
+                            Collapse.but, textModel, by.but, by.ri.but, lblESvystatDesignObj, ok.but, lstBy, entry.ObjectName))
 
 
                     tkbind(lstVariables, "<Double-Button-1>", function() {
@@ -4178,6 +4178,19 @@ fSvystatTM <- function(){
                     LeftParen.but <- tk2button(OperatorsFrame, text="(", width="3", state="disabled", command=function() fOnOperatorModel(textModel, "("))
                     RightParen.but <- tk2button(OperatorsFrame, text=")", width="3", state="disabled", command=function() fOnOperatorModel (textModel, ")"))
                     Collapse.but <- tk2button(OperatorsFrame, text="+...+", width="5", state="disabled", command=function() fOnCollapseOperatorModel(lstVariables, textModel, parent = ttSvystatB))
+
+                    labellblfBy <- tk2label(frameDown,text="  by  ", font=fontTextLabel, image=image_qm, compound="right")
+                    descfunz <- descArgs("svystatL", args = "by")
+                    tk2tip(labellblfBy,descfunz)
+                    lblfBy<- tk2labelframe(frameDown, labelwidget=labellblfBy)
+                    frameBy <- tkframe(lblfBy, borderwidth=0)
+                    frameBy.but <- tkframe(lblfBy, borderwidth=0)
+                    scrBy <- tkscrollbar(frameBy, repeatinterval= 5, command = function(...) tkyview(lstBy,...))
+
+                    listaBy <- tclVar()
+                    lstBy <- tklistbox(frameBy, height=4, listvariable=listaBy, selectmode="extended", yscrollcommand = function (...)tkset(scrBy,...), background = "white")
+                    by.but <- tk2button(frameBy.but,image=image_sx, state= "disabled", command = function()fTransfer(lstBy, lstVariables, listaVariables))
+                    by.ri.but <- tk2button(frameBy.but, image=image_dx, state= "disabled", command = function()fDetransfer(lstBy, lstVariables, listaBy))
 
                     lblMandatory <- tk2label(frameGlobal,text="Mandatory Fields", font=fontTextTitle, foreground= "blue")
                     lblOptional <-tk2label(frameGlobal,text="Optional Fields", font=fontTextTitle, foreground= "blue")
@@ -4269,7 +4282,7 @@ fSvystatTM <- function(){
                     entry.ObjectName <-ttkentry(lblfSvystatBObj, width="20", text=ObjectName, state= "disabled", font="TkDefaultFont")
 
                     ok.but <- tk2button(frameButtons, text="OK", image=image_ok, compound="left", state= "disabled",
-                              command=function() fOnRun_SvystatB(textModel, rbValueDeff, checkbuttonVar,
+                              command=function() fOnRun_SvystatB(textModel, lstBy, rbValueDeff, checkbuttonVar,
                               lvar, vartype_name, rbValueConf.int, rbValueNa.rm, s, ObjectName, ttSvystatB))
 
 
@@ -4302,18 +4315,18 @@ fSvystatTM <- function(){
                     # Enable ctrl-c and ctrl-v on textModel
                     ctrl.cv(textModel)
 
-                    tkgrid(lblfDeff, lblfVartype, lblfConf.int, lblfConf.lev, lblfNa.rm)
+                    tkgrid(lblfBy,lblfDeff,lblfVartype, lblfConf.int, lblfConf.lev, lblfNa.rm)
 
                     tkgrid.configure(lblfDeff, padx=c("0.4c",0), pady=c(0,"0.2c"))
-                    # tkgrid(frameBy.but, frameBy)
-                    # tkgrid.configure(frameBy.but, padx= c("0.1c"), pady=c(0,"0.3c"))
-                    # tkgrid.configure(frameBy, padx= c(0,"0.1c"), pady=c(0,"0.3c"))
-                    # tkgrid(by.but)
-                    # tkgrid(by.ri.but)
-                    # tkgrid(lstBy, scrBy)
-                    # tkgrid.configure(by.but, pady=c(0,"0.2c"))
-                    # tkgrid.configure(by.ri.but, pady=c("0.2c",0))
-                    # tkgrid.configure(scrBy, sticky ="nsw")
+                    tkgrid(frameBy.but, frameBy)
+                    tkgrid.configure(frameBy.but, padx= c("0.1c"), pady=c(0,"0.3c"))
+                    tkgrid.configure(frameBy, padx= c(0,"0.1c"), pady=c(0,"0.3c"))
+                    tkgrid(by.but)
+                    tkgrid(by.ri.but)
+                    tkgrid(lstBy, scrBy)
+                    tkgrid.configure(by.but, pady=c(0,"0.2c"))
+                    tkgrid.configure(by.ri.but, pady=c("0.2c",0))
+                    tkgrid.configure(scrBy, sticky ="nsw")
 
                     tkgrid(labelDeffF,rbDeffF)
                     tkgrid(labelDeffT,rbDeffT)
@@ -4402,8 +4415,8 @@ fSvystatTM <- function(){
 
             fElencoCampiSvystatB <- function(EC_lista, EC_lstEsvydesignObj, EC_lblVariables, x, lstEC_EsvydesignObj,
                     scrEC, EC_Tilde.but, EC_Plus.but, EC_Times.but, EC_Colon.but, EC_Minus.but, EC_Power.but, EC_LeftParen.but, EC_RightParen.but,
-                    EC_Collapse.but, EC_textModel,
-                    EC_lblESvystatDesignObj, EC_ok.but, EC_entry.ObjectName){
+                    EC_Collapse.but, EC_textModel, EC_by.but, EC_by.ri.but,
+                    EC_lblESvystatDesignObj, EC_ok.but, EC_lstBy, EC_entry.ObjectName){
 
                     EC_indicesel <- as.character(tclvalue(tkcurselection(EC_lstEsvydesignObj)))
 
@@ -4427,6 +4440,7 @@ fSvystatTM <- function(){
                         Index_dataframe_old_Svyby <<- EC_indicesel
 
                         tkdelete(EC_textModel, "1.0", "end")
+                        tkdelete(EC_lstBy, 0, "end")
                         tkdelete(EC_entry.ObjectName, 0, "end")
 
 # LOOP NON NECESSARIO: eliminato, vedi sotto. DIRE A RAFFAELLA 15/10/2010
@@ -4452,13 +4466,16 @@ fSvystatTM <- function(){
 
                         tkconfigure(EC_textModel, state = "normal")
 
+                        tkconfigure(EC_by.but, state = "normal")
+                        tkconfigure(EC_by.ri.but, state = "normal")
+
                         tkconfigure(EC_ok.but, state = "normal")
                         tkconfigure(EC_lblVariables, text="Variables", state = "normal")
                         tkconfigure(EC_entry.ObjectName, state = "normal")
                     }
             }
 
-            fOnRun_SvystatB <- function(OR_textModel, OR_rbValueDeff,
+            fOnRun_SvystatB <- function(OR_textModel, OR_lstBy, OR_rbValueDeff,
                     OR_checkbuttonVar, OR_lvar, OR_vartype_name, OR_rbValueConf.int,
                     OR_rbValueNa.rm, OR_s, OR_SvystatBObjectName, ttSvystatB){
 
@@ -4479,6 +4496,19 @@ fSvystatTM <- function(){
                     }
 
 
+                    all.lstBy <- tclvalue(tkget(OR_lstBy, 0, "end"))
+
+                    if  (all.lstBy =="") {
+                        by <- NULL
+                        prnBy <- "by= NULL"
+                        }
+                    else {
+                        bysum <- gsub(" ", ":",all.lstBy)
+
+                        by <- as.formula(paste("~", bysum), env = .GlobalEnv)
+                        prnBy <- paste("by=", bysum, sep =" ~ ")
+                    }
+
                     if ( (deff.tmp <-  tclvalue(OR_rbValueDeff))=="replace" ){
                         deff <- deff.tmp
                         prnDeff <- 'deff= "replace"'
@@ -4492,6 +4522,7 @@ fSvystatTM <- function(){
                              prnDeff <- "deff= TRUE"
                          }
                     }
+
 
                     choices <- c()
                     j<- 1
@@ -4576,7 +4607,7 @@ fSvystatTM <- function(){
                         SvystatB_EsvydesignObj <- get(SvystatB_Scelta_EsvydesignObj, envir=.GlobalEnv)
                         # DIRE A RAFFAELLA 16/07/10
 
-                        outSvystatB <- Lancia(svystatB(SvystatB_EsvydesignObj, model, vartype,
+                        outSvystatB <- Lancia(svystatB(SvystatB_EsvydesignObj, model, by, vartype,
                                                             conf.int, conf.lev, deff, na.rm), textWarnings, parent = ttSvystatB)
 
                         if (!inherits(outSvystatB,"try-error")) {
@@ -4586,18 +4617,25 @@ fSvystatTM <- function(){
                             Upd.act.funs(functionsMenu, surveydesignMenu, calibrationMenu)
 
                             cat("\n")
-                            if (!is.big(outSvystatB)) {
-                                cat(paste("# ",OR_SvystatBObjectName,"\n",sep=""))
-                            }
-                            else {
-                                cat(paste("# head(",OR_SvystatBObjectName,")\n",sep=""))
-                            }
-                            printonscreen(outSvystatB, OR_SvystatBObjectName)
+                            if (inherits(outSvystatB, "svystatB.by.list")) {
+                                 # Handle list-like output
+                                 cat(paste("# ",OR_SvystatBObjectName,"\n",sep=""))
+                                 print(outSvystatB)
+                                } else {
+                                 # Handle ordinary dataframe-like output
+                                 if (!is.big(outSvystatB)) {
+                                     cat(paste("# ",OR_SvystatBObjectName,"\n",sep=""))
+                                    }
+                                 else {
+                                     cat(paste("# head(",OR_SvystatBObjectName,")\n",sep=""))
+                                    }
+                                 printonscreen(outSvystatB, OR_SvystatBObjectName)
+                                }
                             cat("\n")
 
                             prnDesign <- paste("design=", SvystatB_Scelta_EsvydesignObj)
 
-                            prnSvystatB<- paste(" <- svystatB(",    prnDesign, ", ", prnModel,
+                            prnSvystatB<- paste(" <- svystatB(",    prnDesign, ", ", prnModel, ", ", prnBy,
                                         ", ", prnVartype, ", ", prnConf.int, ", ", prnConf.lev,
                                         ", ", prnDeff, ", ", prnNa.rm, ")", sep="")
 

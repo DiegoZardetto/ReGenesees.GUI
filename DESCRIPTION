@@ -7,6 +7,8 @@ Maintainer: Diego Zardetto <zardetto@istat.it>
 Description: A Graphical User Interface for the ReGenesees package,
              based on tcltk.
 License: EUPL
+URL: https://github.com/DiegoZardetto/ReGenesees.GUI/
+BugReports:	https://github.com/DiegoZardetto/ReGenesees.GUI/issues/
 Depends: R (>= 2.14.0), tcltk, tcltk2, RODBC, svMisc, ReGenesees
 Imports: utils
 ByteCompile: TRUE
