@@ -19,12 +19,12 @@ devtools::install_github("DiegoZardetto/ReGenesees.GUI")
 The **last released version** of ReGenesees.GUI can be downloaded from [Istat website](https://www.istat.it/en/tools/methods-and-it-tools/processing-tools/regenesees) or from the [European Commission platform Joinup]( https://joinup.ec.europa.eu/solution/regenesees-system/releases) (where **older versions** are available too).
 
 
-## Sample GUI Screenshots
-
-<img src="GUIscreenshot.png" align="left" alt="" />
-
-  \n
 ## Sponsors
 The ReGenesees project was conceived in **Istat** in late 2006, and Istat has been ReGenesees' primary sponsor ever since.
 
 From April 2021, development, maintenance and support of ReGenesees are also actively sponsored by the **World Bank**.
+
+
+## Sample GUI Screenshots
+
+<img src="GUIscreenshot.png" align="left" alt="" />
