@@ -21,7 +21,7 @@ The **last released version** of ReGenesees.GUI can be downloaded from [Istat we
 
 ## Sample GUI Screenshots
 
-<img src="GUIscreenshot.png" align="left" alt="" />
+<img src="GUIscreenshot.png" align="left" alt="" />  
 
 
 ## Sponsors
