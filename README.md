@@ -21,8 +21,8 @@ The **last released version** of ReGenesees.GUI can be downloaded from [Istat we
 
 ## Sample GUI Screenshots
 
-<img src="GUIscreenshot.png" align="left" alt="" />  
-
+<img src="GUIscreenshot.png" align="left" alt="" />
+  
 
 ## Sponsors
 The ReGenesees project was conceived in **Istat** in late 2006, and Istat has been ReGenesees' primary sponsor ever since.
