@@ -1,6 +1,5 @@
 Changes in ReGenesees.GUI version 2.1
 
- - THIS IS A DEVELOPMENT VERSION AND IS NOT RELEASED YET.
  - Dialog window "Regression Coefficients" in "Estimates and Errors" menu has
    gained a 'by' listbox (as ReGenesees now allows estimation of multiple
    regression coefficients in subpopulations).
