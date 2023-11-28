@@ -3,11 +3,11 @@ citHeader("To cite the ReGenesees.GUI package in publications please use:")
 citEntry(
     entry = "misc",
     author = "Diego Zardetto, Raffaella Cianchetta",
-    year = "2022",
+    year = "2023",
     title = "ReGenesees.GUI: a TclTk Interface for the ReGenesees Package",
-    note = "R package version 2.2",
+    note = "R package version 2.3",
     organization = "Istat",
     address = "Rome, Italy",
-    textVersion = "D. Zardetto, R. Cianchetta (2022) \"ReGenesees.GUI: a TclTk Interface for the ReGenesees Package\". R package version 2.2, Istat, Italy."
+    textVersion = "D. Zardetto, R. Cianchetta (2023) \"ReGenesees.GUI: a TclTk Interface for the ReGenesees Package\". R package version 2.3, Istat, Italy."
     )
   

@@ -1,7 +1,7 @@
 Package: ReGenesees.GUI
 Type: Package
 Title: GUI Facility for the ReGenesees Package
-Version: 2.2
+Version: 2.3
 Author: Diego Zardetto, and Raffaella Cianchetta
 Maintainer: Diego Zardetto <zardetto@istat.it>
 Description: A Graphical User Interface for the ReGenesees package,
