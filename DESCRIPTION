@@ -1,14 +1,17 @@
 Package: ReGenesees.GUI
 Type: Package
 Title: GUI Facility for the ReGenesees Package
-Version: 2.3
-Author: Diego Zardetto, and Raffaella Cianchetta
-Maintainer: Diego Zardetto <zardetto@istat.it>
 Description: A Graphical User Interface for the ReGenesees package,
              based on tcltk.
-License: EUPL
+Version: 2.4
+Author: Diego Zardetto [aut, cre], Raffaella Cianchetta [aut]
+Maintainer: Diego Zardetto <zardetto@istat.it>
+Authors@R: c(person("Diego", "Zardetto", role = c("aut", "cre"),
+                    email = "zardetto@istat.it"),
+             person("Raffaella", "Cianchetta", role = "aut"))
 URL: https://github.com/DiegoZardetto/ReGenesees.GUI/
 BugReports:	https://github.com/DiegoZardetto/ReGenesees.GUI/issues/
-Depends: R (>= 3.5.0), tcltk, tcltk2, RODBC, svMisc, ReGenesees
+License: EUPL
 Imports: utils
+Depends: R (>= 3.5.0), tcltk, tcltk2, RODBC, svMisc, ReGenesees
 ByteCompile: TRUE

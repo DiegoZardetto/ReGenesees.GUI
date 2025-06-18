@@ -115,7 +115,7 @@ Diego Zardetto and Raffaella Cianchetta
 \note{
 The GUI needs a screen resolution of at least 1024x768: this may rule out some netbooks.\cr
 The GUI is known to work better under the SDI (single document interface) mode of Rgui.\cr 
-The GUI has been extensively tested under Windows OS (XP and 7). Tests on Mac OS X revealed that every GUI functionality works fine, altough its overall look seems definitely worse than under Windows. 
+The GUI has been extensively tested under Windows OS. Tests on Mac OS X revealed that all the functionalities of the GUI work fine, altough its overall look seems definitely worse than under Windows.
 }
 
 \examples{
