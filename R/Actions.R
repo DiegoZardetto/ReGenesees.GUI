@@ -287,7 +287,16 @@ if (ReturnExit=="yes"){
       # NOTE: tcltk2 function below would generate 2 ugly warnings
       #       despite working correctly: avoid it switching off warnings
 old.warn <- options("warn"= -1) # Switch OFF
-    setLanguage(oldopt$oldlang)
+    # setLanguage(oldopt$oldlang)
+    # ------------------------------------------------------------------------------------
+    # DEBUG 19/06/2025: Commenting the command above because tcltk2:::setLanguage
+    #                   introduced a BUG in tcltk2 1.6.1 (01/06/2025). It breaks
+    #                   when the return string of getLanguage() has a "\" in it,
+    #                   e.g. "\"en\""
+    #
+    #                   MUST WRITE TO Philippe Grosjean <phgrosjean at sciviews.org>
+    #                   ASK HIM TO FIX the tcltk2 BUG BEFORE DECOMMENTING MY CODE!
+    # ------------------------------------------------------------------------------------	
 options(old.warn)               # Switch ON again
     options(oldopt$base.opt)
     options(oldopt$RG.opt)

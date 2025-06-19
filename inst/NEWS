@@ -1,6 +1,9 @@
 Changes in ReGenesees.GUI version 2.4
 
  - This version ensures a safe transition of ReGenesees to the "R 4.5.x" series.
+ - Shielded ReGenesees.GUI code from a bug that would otherwise be introduced
+   by the new 1.6.1 version of package tcltk2. Awaiting for the bug fix from the
+   tcltk2 maintainer before removing my patch.
  - No user-visible changes.
 
 
