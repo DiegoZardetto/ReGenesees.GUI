@@ -13,11 +13,11 @@ You can install the **development version** of ReGenesees.GUI from [GitHub](http
 ``` r
 # Recommended
 install.packages("pak")
-pak::pak("DiegoZardetto/ReGenesees")
+pak::pak("DiegoZardetto/ReGenesees.GUI")
 
 # Alternative
 install.packages("remotes")
-remotes::install_github("DiegoZardetto/ReGenesees")
+remotes::install_github("DiegoZardetto/ReGenesees.GUI")
 ```
 
 The **last released version** of ReGenesees.GUI can be downloaded from [Istat website](https://www.istat.it/en/tools/methods-and-it-tools/processing-tools/regenesees) or from the [European Commission platform Joinup](https://joinup.ec.europa.eu/solution/regenesees-system/releases) (where **older versions** are available too).
