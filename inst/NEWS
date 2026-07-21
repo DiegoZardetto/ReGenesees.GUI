@@ -1,3 +1,11 @@
+Changes in ReGenesees.GUI version 2.5
+
+ - This version ensures a safe transition of ReGenesees to the "R 4.6.x" series.
+ - The documentation (help pages, reference manual, GITHUB) was reviewed, fixing
+   typos and other minor issues.
+ - No user-visible changes to the source code.
+
+
 Changes in ReGenesees.GUI version 2.4
 
  - This version ensures a safe transition of ReGenesees to the "R 4.5.x" series.

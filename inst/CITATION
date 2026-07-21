@@ -3,10 +3,10 @@ citHeader("To cite the ReGenesees.GUI package in publications please use:")
 bibentry(
     bibtype = "misc",
     author = "Diego Zardetto, Raffaella Cianchetta",
-    year = "2025",
+    year = "2026",
     title = "ReGenesees.GUI: a TclTk Interface for the ReGenesees Package",
-    note = "R package version 2.4",
+    note = "R package version 2.5",
     organization = "Istat",
     address = "Rome, Italy",
-    textVersion = "D. Zardetto, R. Cianchetta (2025) \"ReGenesees.GUI: a TclTk Interface for the ReGenesees Package\". R package version 2.4, Istat, Italy."
+    textVersion = "D. Zardetto, R. Cianchetta (2026) \"ReGenesees.GUI: a TclTk Interface for the ReGenesees Package\". R package version 2.5, Istat, Italy."
     )

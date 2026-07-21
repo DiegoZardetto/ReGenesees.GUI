@@ -3,7 +3,7 @@ Type: Package
 Title: GUI Facility for the ReGenesees Package
 Description: A Graphical User Interface for the ReGenesees package,
              based on tcltk.
-Version: 2.4
+Version: 2.5
 Author: Diego Zardetto [aut, cre], Raffaella Cianchetta [aut]
 Maintainer: Diego Zardetto <zardetto@istat.it>
 Authors@R: c(person("Diego", "Zardetto", role = c("aut", "cre"),
